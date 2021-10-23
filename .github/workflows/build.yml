@@ -36,3 +36,4 @@ jobs:
       - uses: abatilo/actions-poetry@v2.1.4
       - run: poetry install
       - run: ./scripts/test.sh
+      - uses: codecov/codecov-action@v2
