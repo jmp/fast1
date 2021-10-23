@@ -20,7 +20,7 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
       - uses: abatilo/actions-poetry@v2.1.4
       - run: poetry install
-      - run: ./lint.sh
+      - run: ./scripts/lint.sh
   test:
     runs-on: ubuntu-latest
     steps:
@@ -35,4 +35,4 @@ jobs:
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
       - uses: abatilo/actions-poetry@v2.1.4
       - run: poetry install
-      - run: ./test.sh
+      - run: ./scripts/test.sh
