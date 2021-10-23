@@ -16,4 +16,7 @@ jobs:
       - run: sudo apt-get -y install gcc libmariadb-dev
       - run: pip install poetry
       - run: poetry install
-      - run: ./lint.sh
+      - run: black --check .
+      - run: isort --check .
+      - run: flake8 .
+      - run: mypy --strict .
