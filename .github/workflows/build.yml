@@ -21,3 +21,4 @@ jobs:
         env:
           POETRY_VIRTUALENVS_CREATE: false
       - run: ./lint.sh
+      - run: pytest
