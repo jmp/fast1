@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-poetry run pylint
+poetry run pytest
