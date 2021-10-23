@@ -20,9 +20,17 @@ isort = "^5.9.3"
 flake8 = "^4.0.1"
 mypy = "^0.910"
 requests = "^2.26.0"
+pytest-env = "^0.6.2"
+sqlalchemy-stubs = "^0.4"
 
 [tool.isort]
 profile = "black"
+
+[tool.pytest.ini_options]
+env = ["DATABASE_URL = sqlite:///:memory:"]
+
+[tool.mypy]
+plugins = "sqlmypy"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
