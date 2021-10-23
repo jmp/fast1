@@ -22,6 +22,7 @@ mypy = "^0.910"
 
 [tool.isort]
 profile = "black"
+skip = [".git", ".idea", ".mypy_cache", ".venv"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
