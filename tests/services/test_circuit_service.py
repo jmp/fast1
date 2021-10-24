@@ -9,7 +9,7 @@ from app.services.circuit_service import CircuitService
 def test_get_circuit_returns_circuit_if_it_exists(monza: Circuit) -> None:
     adapter = _create_get_circuit_adapter(monza)
     service: GetCircuitUseCase = CircuitService(adapter)
-    circuit = service.get_circuit("monza")
+    circuit = service.get_circuit(monza.ref)
     assert circuit == monza
 
 
