@@ -1,30 +1,10 @@
-from decimal import Decimal
-from typing import Optional
-
-from .domain.circuit import Circuit
-from .ports.spi.get_circuit_port import GetCircuitPort
+from .adapters.spi.persistence.repositories.circuit_repository import CircuitRepository
 from .services.circuit_service import CircuitService
 
 
 def _create_circuit_service() -> CircuitService:
-    class DummyGetCircuitAdapter(GetCircuitPort):
-        def get_circuit(self, ref: str) -> Optional[Circuit]:
-            if ref == "monza":
-                return Circuit(
-                    id=14,
-                    ref="monza",
-                    name="Autodromo Nazionale di Monza",
-                    location="Monza",
-                    country="Italy",
-                    latitude=Decimal("45.6156"),
-                    longitude=Decimal("9.28111"),
-                    altitude=162,
-                    url="http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
-                )
-            return None
-
-    adapter = DummyGetCircuitAdapter()
-    service = CircuitService(adapter)
+    repository = CircuitRepository()
+    service = CircuitService(repository)
     return service
 
 
