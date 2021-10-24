@@ -1,5 +1,8 @@
 # fast1
 
+[![build](https://github.com/jmp/fast1/actions/workflows/build.yml/badge.svg)](https://github.com/jmp/fast1/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/jmp/fast1/branch/master/graph/badge.svg?token=FROR82Q32Y)](https://codecov.io/gh/jmp/fast1)
+
 This is a an experimental read-only API for F1 data.
 
 ## Requirements
