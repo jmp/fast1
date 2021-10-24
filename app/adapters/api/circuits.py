@@ -2,20 +2,23 @@ from typing import Any
 
 from fastapi import APIRouter, HTTPException
 
+from app.dependencies import circuit_fetching_service
+
 router = APIRouter()
 
 
 @router.get("/circuits/{ref}")
 async def circuits(ref: str) -> dict[str, Any]:
-    if ref == "monza":
-        return {
-            "ref": "monza",
-            "name": "Autodromo Nazionale di Monza",
-            "location": "Monza",
-            "country": "Italy",
-            "latitude": 45.6156,
-            "longitude": 9.28111,
-            "altitude": 162,
-            "url": "http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
-        }
-    raise HTTPException(404)
+    circuit = circuit_fetching_service.get_circuit(ref)
+    if circuit is None:
+        raise HTTPException(404)
+    return {
+        "ref": circuit.ref,
+        "name": circuit.name,
+        "location": circuit.location,
+        "country": circuit.country,
+        "latitude": circuit.latitude,
+        "longitude": circuit.longitude,
+        "altitude": circuit.altitude,
+        "url": circuit.url,
+    }
