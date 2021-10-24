@@ -2,14 +2,14 @@ from typing import Any
 
 from fastapi import APIRouter, HTTPException
 
-from app.dependencies import circuit_fetching_service
+from app.dependencies import circuit_service
 
 router = APIRouter()
 
 
 @router.get("/circuits/{ref}")
 async def circuits(ref: str) -> dict[str, Any]:
-    circuit = circuit_fetching_service.get_circuit(ref)
+    circuit = circuit_service.get_circuit(ref)
     if circuit is None:
         raise HTTPException(404)
     return {

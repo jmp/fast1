@@ -3,7 +3,7 @@ from typing import Optional
 from app.domain.circuit import Circuit
 from app.ports.api.get_circuit_use_case import GetCircuitUseCase
 from app.ports.spi.get_circuit_port import GetCircuitPort
-from app.services.circuit_fetching_service import CircuitFetchingService
+from app.services.circuit_service import CircuitService
 
 
 def test_get_circuit_returns_circuit_if_it_exists() -> None:
@@ -23,7 +23,7 @@ def test_get_circuit_returns_circuit_if_it_exists() -> None:
         def get_circuit(self, ref: str) -> Optional[Circuit]:
             return expected_circuit
 
-    service: GetCircuitUseCase = CircuitFetchingService(GetCircuitAdapter())
+    service: GetCircuitUseCase = CircuitService(GetCircuitAdapter())
     circuit = service.get_circuit("monza")
     assert circuit == expected_circuit
 
@@ -33,6 +33,6 @@ def test_get_circuit_returns_none_if_circuit_does_not_exist() -> None:
         def get_circuit(self, ref: str) -> Optional[Circuit]:
             return None
 
-    service: GetCircuitUseCase = CircuitFetchingService(GetCircuitAdapter())
+    service: GetCircuitUseCase = CircuitService(GetCircuitAdapter())
     circuit = service.get_circuit("does_not_exist")
     assert circuit is None

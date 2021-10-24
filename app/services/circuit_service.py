@@ -5,7 +5,7 @@ from app.ports.api.get_circuit_use_case import GetCircuitUseCase
 from app.ports.spi.get_circuit_port import GetCircuitPort
 
 
-class CircuitFetchingService(GetCircuitUseCase):
+class CircuitService(GetCircuitUseCase):
     def __init__(self, get_circuit: GetCircuitPort):
         self.get_circuit_port = get_circuit
 

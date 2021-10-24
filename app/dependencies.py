@@ -2,10 +2,10 @@ from typing import Optional
 
 from .domain.circuit import Circuit
 from .ports.spi.get_circuit_port import GetCircuitPort
-from .services.circuit_fetching_service import CircuitFetchingService
+from .services.circuit_service import CircuitService
 
 
-def _create_circuit_fetching_service() -> CircuitFetchingService:
+def _create_circuit_service() -> CircuitService:
     class DummyGetCircuitAdapter(GetCircuitPort):
         def get_circuit(self, ref: str) -> Optional[Circuit]:
             if ref == "monza":
@@ -23,8 +23,8 @@ def _create_circuit_fetching_service() -> CircuitFetchingService:
             return None
 
     adapter = DummyGetCircuitAdapter()
-    service = CircuitFetchingService(adapter)
+    service = CircuitService(adapter)
     return service
 
 
-circuit_fetching_service = _create_circuit_fetching_service()
+circuit_service = _create_circuit_service()
