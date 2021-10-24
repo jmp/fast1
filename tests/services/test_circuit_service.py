@@ -6,26 +6,14 @@ from app.ports.spi.get_circuit_port import GetCircuitPort
 from app.services.circuit_service import CircuitService
 
 
-def test_get_circuit_returns_circuit_if_it_exists() -> None:
-    expected_circuit = Circuit(
-        id=14,
-        ref="monza",
-        name="Autodromo Nazionale di Monza",
-        location="Monza",
-        country="Italy",
-        latitude=45.6156,
-        longitude=9.28111,
-        altitude=162,
-        url="http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
-    )
-
+def test_get_circuit_returns_circuit_if_it_exists(monza: Circuit) -> None:
     class GetCircuitAdapter(GetCircuitPort):
         def get_circuit(self, ref: str) -> Optional[Circuit]:
-            return expected_circuit
+            return monza
 
     service: GetCircuitUseCase = CircuitService(GetCircuitAdapter())
     circuit = service.get_circuit("monza")
-    assert circuit == expected_circuit
+    assert circuit == monza
 
 
 def test_get_circuit_returns_none_if_circuit_does_not_exist() -> None:
