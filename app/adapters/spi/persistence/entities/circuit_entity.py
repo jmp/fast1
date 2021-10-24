@@ -4,10 +4,10 @@ from sqlalchemy import Column, Float, Integer, String
 
 from app.domain.circuit import Circuit
 
-from .entity import Base
+from .entity import Entity
 
 
-class CircuitEntity(Base):
+class CircuitEntity(Entity):
     __tablename__ = "circuits"
 
     circuit_id = Column("circuitId", Integer, primary_key=True)
