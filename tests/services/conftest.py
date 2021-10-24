@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from pytest import fixture
 
 from app.domain.circuit import Circuit
@@ -11,8 +13,8 @@ def monza() -> Circuit:
         name="Autodromo Nazionale di Monza",
         location="Monza",
         country="Italy",
-        latitude=45.6156,
-        longitude=9.28111,
+        latitude=Decimal("45.6156"),
+        longitude=Decimal("9.28111"),
         altitude=162,
         url="http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
     )

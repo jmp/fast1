@@ -227,7 +227,7 @@ python-versions = "*"
 name = "mypy"
 version = "0.910"
 description = "Optional static typing for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -244,7 +244,7 @@ python2 = ["typed-ast (>=1.4.0,<1.5.0)"]
 name = "mypy-extensions"
 version = "0.4.3"
 description = "Experimental type system extensions for programs checked with the mypy typechecker."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -429,6 +429,8 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
 
 [package.dependencies]
 greenlet = {version = "!=0.4.17", markers = "python_version >= \"3\" and (platform_machine == \"aarch64\" or platform_machine == \"ppc64le\" or platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"win32\" or platform_machine == \"WIN32\")"}
+mypy = {version = ">=0.910", optional = true, markers = "python_version >= \"3\" and extra == \"mypy\""}
+sqlalchemy2-stubs = {version = "*", optional = true, markers = "extra == \"mypy\""}
 
 [package.extras]
 aiomysql = ["greenlet (!=0.4.17)", "aiomysql"]
@@ -464,6 +466,17 @@ mypy = ">=0.790"
 typing-extensions = ">=3.7.4"
 
 [[package]]
+name = "sqlalchemy2-stubs"
+version = "0.0.2a18"
+description = "Typing Stubs for SQLAlchemy 1.4"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+typing-extensions = ">=3.7.4"
+
+[[package]]
 name = "starlette"
 version = "0.16.0"
 description = "The little ASGI library that shines."
@@ -481,7 +494,7 @@ full = ["itsdangerous", "jinja2", "python-multipart", "pyyaml", "requests", "gra
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -533,7 +546,7 @@ standard = ["websockets (>=9.1)", "httptools (>=0.2.0,<0.3.0)", "watchgod (>=0.6
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f11e0cf50b7aa6bd0d7e36032a660b4a2f9a102aab9418550a9b0917c99e6ed1"
+content-hash = "7467a67245c98af58582966a1c4a45ff3c788fe4defc5b62114fa7070003f9db"
 
 [metadata.files]
 anyio = [
@@ -883,6 +896,10 @@ sqlalchemy = [
 sqlalchemy-stubs = [
     {file = "sqlalchemy-stubs-0.4.tar.gz", hash = "sha256:c665d6dd4482ef642f01027fa06c3d5e91befabb219dc71fc2a09e7d7695f7ae"},
     {file = "sqlalchemy_stubs-0.4-py3-none-any.whl", hash = "sha256:5eec7aa110adf9b957b631799a72fef396b23ff99fe296df726645d01e312aa5"},
+]
+sqlalchemy2-stubs = [
+    {file = "sqlalchemy2-stubs-0.0.2a18.tar.gz", hash = "sha256:513f8f504e7a869e6a584b9cbfa65b7d817d017ff01af61855f62087735561a9"},
+    {file = "sqlalchemy2_stubs-0.0.2a18-py3-none-any.whl", hash = "sha256:75ec8ce53db5a85884adcb9f249751bc3aefb4c24fd2b5bd62860113eea4b37a"},
 ]
 starlette = [
     {file = "starlette-0.16.0-py3-none-any.whl", hash = "sha256:38eb24bf705a2c317e15868e384c1b8a12ca396e5a3c3a003db7e667c43f939f"},
