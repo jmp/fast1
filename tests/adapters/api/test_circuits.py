@@ -14,3 +14,8 @@ def test_get_circuit(client: TestClient) -> None:
         "altitude": 162,
         "url": "http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
     }
+
+
+def test_get_circuit_returns_404_if_not_found(client: TestClient) -> None:
+    response = client.get("/circuits/does_not_exist")
+    assert response.status_code == 404
