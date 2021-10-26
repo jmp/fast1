@@ -2,9 +2,10 @@ from typing import Any
 
 from fastapi import APIRouter, HTTPException
 
-from app.dependencies import circuit_service
+from app.dependencies import get_dependencies
 
 router = APIRouter()
+circuit_service = get_dependencies().circuit_service
 
 
 @router.get("/circuits/{ref}")
