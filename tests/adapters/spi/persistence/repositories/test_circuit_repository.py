@@ -4,7 +4,7 @@ from app.adapters.spi.persistence.repositories.circuit_repository import (
 from app.domain.circuit import Circuit
 
 
-def test_get_circuit_returns_entity_if_it_exists(monza: Circuit) -> None:
+def test_get_circuit_returns_circuit_if_it_exists(monza: Circuit) -> None:
     repository = CircuitRepository()
     circuit = repository.get_circuit("monza")
     assert circuit == monza
