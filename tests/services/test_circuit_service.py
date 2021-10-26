@@ -3,9 +3,10 @@ from typing import Optional
 from app.domain.circuit import Circuit
 from app.ports.spi.get_circuit_port import GetCircuitPort
 from app.services.circuit_service import CircuitService
+from tests.domain.circuits import monza
 
 
-def test_get_circuit_returns_circuit_if_it_exists(monza: Circuit) -> None:
+def test_get_circuit_returns_circuit_if_it_exists() -> None:
     adapter = _create_get_circuit_adapter(monza)
     service = CircuitService(adapter)
     circuit = service.get_circuit(monza.ref)
