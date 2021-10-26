@@ -12,6 +12,6 @@ async def circuits(
 ) -> CircuitDto:
     circuit_service = dependencies.circuit_service
     circuit = circuit_service.get_circuit(ref)
-    if circuit is None:
-        raise HTTPException(404)
-    return CircuitDto.from_domain_model(circuit)
+    if circuit is not None:
+        return CircuitDto.from_domain_model(circuit)
+    raise HTTPException(404)
