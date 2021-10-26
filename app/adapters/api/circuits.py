@@ -1,15 +1,17 @@
 from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
-from app.dependencies import get_dependencies
+from app.dependencies import Dependencies, get_dependencies
 
 router = APIRouter()
-circuit_service = get_dependencies().circuit_service
 
 
 @router.get("/circuits/{ref}")
-async def circuits(ref: str) -> dict[str, Any]:
+async def circuits(
+    ref: str, dependencies: Dependencies = Depends(get_dependencies)
+) -> dict[str, Any]:
+    circuit_service = dependencies.circuit_service
     circuit = circuit_service.get_circuit(ref)
     if circuit is None:
         raise HTTPException(404)
