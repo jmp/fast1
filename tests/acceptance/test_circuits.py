@@ -1,13 +1,14 @@
 from typing import Any
 
 from fastapi.testclient import TestClient
-from pytest import fixture
+from pytest import fixture, mark
 from pytest_bdd import given, scenario, then, when
 
 from app.main import app
 from tests.unit.domain.circuits import monza
 
 
+@mark.acceptance
 @scenario("circuits.feature", "Getting the details of a single circuit")  # type: ignore
 def test_getting_single_circuit_details() -> None:
     pass

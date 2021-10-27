@@ -1,22 +1,8 @@
 from fastapi.testclient import TestClient
-
-from app.adapters.api.dtos.circuit_dto import CircuitDto
-from tests.unit.domain.circuits import monza
+from pytest import mark
 
 
-def test_circuit_dto() -> None:
-    dto = CircuitDto.from_domain_model(monza)
-    assert dto == CircuitDto(
-        name=monza.name,
-        location=monza.location,
-        country=monza.country,
-        latitude=monza.latitude,
-        longitude=monza.longitude,
-        altitude=monza.altitude,
-        url=monza.url,
-    )
-
-
+@mark.integration
 def test_get_circuit(client: TestClient) -> None:
     response = client.get("/circuits/monza")
     assert response.status_code == 200
@@ -31,6 +17,7 @@ def test_get_circuit(client: TestClient) -> None:
     }
 
 
+@mark.integration
 def test_get_circuit_returns_404_if_not_found(client: TestClient) -> None:
     response = client.get("/circuits/does_not_exist")
     assert response.status_code == 404

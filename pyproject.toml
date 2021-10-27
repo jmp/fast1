@@ -29,6 +29,10 @@ profile = "black"
 
 [tool.pytest.ini_options]
 env = ["DATABASE_URL = sqlite:///:memory:"]
+markers = [
+    "integration: marks tests as integration tests",
+    "acceptance: marks tests as acceptance tests",
+]
 
 [tool.mypy]
 plugins = "sqlalchemy.ext.mypy.plugin"
