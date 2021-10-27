@@ -6,4 +6,4 @@ Feature: Circuits
         And I have a reference to a circuit
         When I submit a request for the circuit
         Then I should not get an error
-        And I should receive the details for the circuit
+        And I should receive the circuit details

@@ -37,7 +37,7 @@ def no_error(response: Any) -> None:
     assert response.status_code == 200
 
 
-@then("I should receive the details for the circuit")  # type: ignore
+@then("I should receive the circuit details")  # type: ignore
 def circuit_details_received(response: Any) -> None:
     assert response.json() == {
         "name": "Autodromo Nazionale di Monza",
