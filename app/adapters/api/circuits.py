@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 
+from app.adapters.api.dependencies import Dependencies, get_dependencies
 from app.adapters.api.dtos.circuit_dto import CircuitDto
-from app.dependencies import Dependencies, get_dependencies
 
 router = APIRouter()
 

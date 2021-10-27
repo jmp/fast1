@@ -1,9 +1,11 @@
 from dataclasses import dataclass
 from typing import Callable
 
-from .adapters.spi.persistence.repositories.circuit_repository import CircuitRepository
-from .ports.api.get_circuit_use_case import GetCircuitUseCase
-from .services.circuit_service import CircuitService
+from app.adapters.spi.persistence.repositories.circuit_repository import (
+    CircuitRepository,
+)
+from app.ports.api.get_circuit_use_case import GetCircuitUseCase
+from app.services.circuit_service import CircuitService
 
 
 @dataclass(frozen=True)
