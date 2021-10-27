@@ -23,12 +23,12 @@ class CircuitEntity(Entity):
     def to_domain_model(self) -> Circuit:
         return Circuit(
             id=self.circuit_id or 0,
-            ref=str(self.circuit_ref),
-            name=str(self.name),
-            location=str(self.location),
-            country=str(self.country),
-            latitude=Decimal(str(self.lat)),
-            longitude=Decimal(str(self.lng)),
+            ref=self.circuit_ref or "",
+            name=self.name or "",
+            location=self.location,
+            country=self.country,
+            latitude=Decimal(str(self.lat)) if self.lat is not None else None,
+            longitude=Decimal(str(self.lng)) if self.lng is not None else None,
             altitude=self.alt,
-            url=str(self.url),
+            url=self.url or "",
         )
