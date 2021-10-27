@@ -1,7 +1,7 @@
 from app.adapters.spi.persistence.repositories.circuit_repository import (
     CircuitRepository,
 )
-from tests.domain.circuits import monza
+from tests.unit.domain.circuits import monza
 
 
 def test_get_circuit_returns_circuit_if_it_exists() -> None:

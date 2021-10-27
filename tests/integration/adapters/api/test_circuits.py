@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 
 from app.adapters.api.dtos.circuit_dto import CircuitDto
-from tests.domain.circuits import monza
+from tests.unit.domain.circuits import monza
 
 
 def test_circuit_dto() -> None:

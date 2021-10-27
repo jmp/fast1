@@ -8,7 +8,7 @@ from app.domain.circuit import Circuit
 from app.main import app
 from app.ports.spi.get_circuit_port import GetCircuitPort
 from app.services.circuit_service import CircuitService
-from tests.domain.circuits import monza
+from tests.unit.domain.circuits import monza
 
 
 def _get_fake_dependencies() -> Dependencies:

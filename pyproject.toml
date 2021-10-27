@@ -22,6 +22,7 @@ mypy = "^0.910"
 requests = "^2.26.0"
 pytest-env = "^0.6.2"
 pytest-cov = "^3.0.0"
+pytest-bdd = "^5.0.0"
 
 [tool.isort]
 profile = "black"
@@ -31,6 +32,12 @@ env = ["DATABASE_URL = sqlite:///:memory:"]
 
 [tool.mypy]
 plugins = "sqlalchemy.ext.mypy.plugin"
+
+[[tool.mypy.overrides]]
+module = ["pytest_bdd"]
+ignore_missing_imports = true
+disallow_untyped_decorators = false
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
