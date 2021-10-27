@@ -1,7 +1,7 @@
 from typing import Any
 
 from fastapi.testclient import TestClient
-from pytest import fixture, mark
+from pytest import mark
 from pytest_bdd import given, scenario, then, when
 
 from app.main import app
@@ -29,18 +29,12 @@ def ref() -> str:
     target_fixture="circuit_details",
 )  # type: ignore
 def submit_request(client: TestClient, ref: str) -> Any:
-    response = client.get(f"/circuits/{ref}")
-    return response.json()
-
-
-@fixture
-def circuit_details() -> dict[str, Any]:
-    return {}
+    return client.get(f"/circuits/{ref}")
 
 
 @then("I should receive the details for the circuit")  # type: ignore
-def circuit_details_received(circuit_details: dict[str, Any]) -> None:
-    assert circuit_details == {
+def circuit_details_received(circuit_details: Any) -> None:
+    assert circuit_details.json() == {
         "name": "Autodromo Nazionale di Monza",
         "location": "Monza",
         "country": "Italy",
