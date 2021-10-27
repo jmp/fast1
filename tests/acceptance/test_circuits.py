@@ -27,14 +27,19 @@ def ref() -> str:
     return monza.ref
 
 
-@when("I submit a request for the circuit", target_fixture="details")  # type: ignore
+@when("I submit a request for the circuit", target_fixture="response")  # type: ignore
 def submit_request(client: TestClient, ref: str) -> Any:
     return client.get(f"/circuits/{ref}")
 
 
+@then("I should not get an error")  # type: ignore
+def no_error(response: Any) -> None:
+    assert response.status_code == 200
+
+
 @then("I should receive the details for the circuit")  # type: ignore
-def circuit_details_received(details: Any) -> None:
-    assert details.json() == {
+def circuit_details_received(response: Any) -> None:
+    assert response.json() == {
         "name": "Autodromo Nazionale di Monza",
         "location": "Monza",
         "country": "Italy",
