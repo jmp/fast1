@@ -5,7 +5,7 @@ from pytest import mark
 from pytest_bdd import given, scenario, then, when
 
 from app.main import app
-from tests.unit.domain.circuits import monza
+from tests.fixtures.circuits import monza
 
 
 @mark.acceptance

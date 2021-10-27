@@ -3,7 +3,7 @@ from pytest import mark
 from app.adapters.spi.persistence.repositories.circuit_repository import (
     CircuitRepository,
 )
-from tests.unit.domain.circuits import monza
+from tests.fixtures.circuits import monza
 
 
 @mark.integration
