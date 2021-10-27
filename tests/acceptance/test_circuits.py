@@ -9,7 +9,10 @@ from tests.unit.domain.circuits import monza
 
 
 @mark.acceptance
-@scenario("circuits.feature", "Getting the details of a single circuit")  # type: ignore
+@scenario(
+    "features/circuits.feature",
+    "Getting the details of a single circuit",
+)  # type: ignore
 def test_getting_single_circuit_details() -> None:
     pass
 
