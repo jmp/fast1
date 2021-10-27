@@ -10,8 +10,8 @@ router = APIRouter()
 async def circuits(
     ref: str, dependencies: Dependencies = Depends(get_dependencies)
 ) -> CircuitDto:
-    circuit_service = dependencies.circuit_service
-    circuit = circuit_service.get_circuit(ref)
+    use_case = dependencies.get_circuit_use_case
+    circuit = use_case.get_circuit(ref)
     if circuit is not None:
         return CircuitDto.from_domain_model(circuit)
     raise HTTPException(404)

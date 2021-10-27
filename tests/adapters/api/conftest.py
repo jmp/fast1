@@ -16,7 +16,8 @@ def _get_fake_dependencies() -> Dependencies:
         def get_circuit(self, ref: str) -> Optional[Circuit]:
             return monza if ref == monza.ref else None
 
-    return Dependencies(circuit_service=CircuitService(InMemoryCircuitRepository()))
+    circuit_service = CircuitService(InMemoryCircuitRepository())
+    return Dependencies(get_circuit_use_case=circuit_service)
 
 
 app.dependency_overrides[get_dependencies] = _get_fake_dependencies
