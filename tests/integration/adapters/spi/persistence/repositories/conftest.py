@@ -2,17 +2,26 @@ from decimal import Decimal
 from typing import Iterator
 
 from _pytest.fixtures import fixture
-from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.pool import StaticPool
 
 from app.adapters.spi.persistence.entities.circuit_entity import CircuitEntity
 from app.adapters.spi.persistence.entities.entity import Entity
-from app.adapters.spi.persistence.session import SessionLocal, engine
+
+_engine = create_engine(
+    "sqlite:///:memory:",
+    connect_args={"check_same_thread": False},
+    poolclass=StaticPool,
+)
+
+_SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=_engine)
 
 
 @fixture(scope="session")
 def session() -> Iterator[Session]:
-    Entity.metadata.create_all(bind=engine)
-    session = SessionLocal()
+    Entity.metadata.create_all(bind=_engine)
+    session = _SessionLocal()
     entity = CircuitEntity(
         circuit_id=14,
         circuit_ref="monza",
@@ -28,4 +37,4 @@ def session() -> Iterator[Session]:
     session.commit()
     yield session
     session.close()
-    Entity.metadata.drop_all(bind=engine)
+    Entity.metadata.drop_all(bind=_engine)
