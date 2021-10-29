@@ -7,6 +7,7 @@ from app.domain.circuit import Circuit
 
 
 class CircuitDto(BaseModel):
+    ref: str
     name: str
     location: Optional[str]
     country: Optional[str]
@@ -18,6 +19,7 @@ class CircuitDto(BaseModel):
     @staticmethod
     def from_domain_model(circuit: Circuit) -> "CircuitDto":
         return CircuitDto(
+            ref=circuit.ref,
             name=circuit.name,
             location=circuit.location,
             country=circuit.country,

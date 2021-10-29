@@ -40,6 +40,7 @@ def no_error(response: Any) -> None:
 @then("I should receive the circuit details")  # type: ignore
 def circuit_details_received(response: Any) -> None:
     assert response.json() == {
+        "ref": "monza",
         "name": "Autodromo Nazionale di Monza",
         "location": "Monza",
         "country": "Italy",

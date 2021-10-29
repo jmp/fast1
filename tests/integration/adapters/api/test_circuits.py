@@ -7,6 +7,7 @@ def test_get_circuit(client: TestClient) -> None:
     response = client.get("/circuits/monza")
     assert response.status_code == 200
     assert response.json() == {
+        "ref": "monza",
         "name": "Autodromo Nazionale di Monza",
         "location": "Monza",
         "country": "Italy",
