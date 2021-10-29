@@ -3,7 +3,7 @@ from decimal import Decimal
 from typing import Optional
 
 
-@dataclass
+@dataclass(frozen=True)
 class Circuit:
     id: int
     ref: str
