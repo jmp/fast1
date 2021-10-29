@@ -32,11 +32,6 @@ def submit_request(client: TestClient, ref: str) -> Any:
     return client.get(f"/circuits/{ref}")
 
 
-@then("I should not get an error")  # type: ignore
-def no_error(response: Any) -> None:
-    assert response.status_code == 200
-
-
 @then("I should receive the circuit details")  # type: ignore
 def circuit_details_received(response: Any) -> None:
     assert response.json() == {
