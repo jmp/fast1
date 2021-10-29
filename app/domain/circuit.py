@@ -12,5 +12,5 @@ class Circuit:
     country: Optional[str]
     latitude: Optional[Decimal]
     longitude: Optional[Decimal]
-    altitude: Optional[float]
+    altitude: Optional[int]
     url: str
