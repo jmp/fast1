@@ -15,6 +15,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DATABASE_URL: "mariadb+mariadbconnector://db:db@db:3306/db"
+      DATABASE_URL: "mariadb+mariadbconnector://db:db@db/db"
     depends_on:
       - db
