@@ -1,6 +1,5 @@
 from contextvars import ContextVar
 from os import environ
-from typing import Optional
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
@@ -12,4 +11,4 @@ _engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=_engine)
 
 
-db_session: ContextVar[Optional[Session]] = ContextVar("db_session", default=None)
+db_session: ContextVar[Session] = ContextVar("db_session")

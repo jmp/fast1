@@ -10,8 +10,6 @@ from ..session import db_session
 class CircuitRepository(GetCircuitPort):
     def get_circuit(self, ref: str) -> Optional[Circuit]:
         session = db_session.get()
-        if session is None:
-            return None
         entity: Optional[CircuitEntity] = (
             session.query(CircuitEntity)
             .filter(CircuitEntity.circuit_ref == ref)
