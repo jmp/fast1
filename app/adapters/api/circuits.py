@@ -4,10 +4,10 @@ from app.adapters.api.dependencies import Dependencies, get_dependencies
 from app.adapters.api.dtos.circuit_dto import CircuitDto
 from app.adapters.spi.persistence.session import db_session
 
-router = APIRouter()
+router = APIRouter(prefix="/circuits")
 
 
-@router.get("/circuits/{ref}", response_model=CircuitDto)
+@router.get("/{ref}", response_model=CircuitDto)
 async def circuits(
     ref: str, dependencies: Dependencies = Depends(get_dependencies)
 ) -> CircuitDto:
