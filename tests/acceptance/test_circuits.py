@@ -5,9 +5,14 @@ from pytest import mark
 from pytest_bdd import given, scenario, then, when
 
 from app.main import app
+from tests.acceptance.conftest import no_database
 from tests.fixtures.circuits import monza
 
 
+@mark.skipif(
+    no_database(),
+    reason="Acceptance tests cannot be run without a database.",
+)
 @mark.acceptance
 @scenario(
     "features/circuits.feature",

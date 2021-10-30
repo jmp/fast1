@@ -1,4 +1,4 @@
-from typing import Iterator, Optional
+from typing import Iterable, Iterator, Optional
 
 from _pytest.fixtures import fixture
 from starlette.testclient import TestClient
@@ -25,9 +25,9 @@ def _get_fake_dependencies() -> Iterator[Dependencies]:
         session.close()
 
 
-app.dependency_overrides[get_dependencies] = _get_fake_dependencies
-
-
-@fixture(scope="session")
-def client() -> TestClient:
-    return TestClient(app)
+@fixture
+def client() -> Iterable[TestClient]:
+    original_dependencies = get_dependencies
+    app.dependency_overrides[original_dependencies] = _get_fake_dependencies
+    yield TestClient(app)
+    app.dependency_overrides[original_dependencies] = original_dependencies
