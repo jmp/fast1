@@ -1,8 +1,8 @@
 from typing import Optional
 
 from app.domain.circuit import Circuit
-from app.ports.api.get_circuit_use_case import GetCircuitUseCase
-from app.ports.spi.get_circuit_port import GetCircuitPort
+from app.ports.api import GetCircuitUseCase
+from app.ports.spi import GetCircuitPort
 
 
 class CircuitService(GetCircuitUseCase):

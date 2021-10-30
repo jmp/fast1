@@ -7,7 +7,7 @@ from app.adapters.spi.persistence.repositories.circuit_repository import (
     CircuitRepository,
 )
 from app.adapters.spi.persistence.session import SessionLocal
-from app.ports.api.get_circuit_use_case import GetCircuitUseCase
+from app.ports.api import GetCircuitUseCase
 from app.services.circuit_service import CircuitService
 
 

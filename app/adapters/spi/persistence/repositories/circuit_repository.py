@@ -1,7 +1,7 @@
 from typing import Optional
 
 from app.domain.circuit import Circuit
-from app.ports.spi.get_circuit_port import GetCircuitPort
+from app.ports.spi import GetCircuitPort
 
 from ..entities.circuit_entity import CircuitEntity
 from ..session import db_session

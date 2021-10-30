@@ -1,7 +1,7 @@
 from typing import Optional
 
 from app.domain.circuit import Circuit
-from app.ports.spi.get_circuit_port import GetCircuitPort
+from app.ports.spi import GetCircuitPort
 from app.services.circuit_service import CircuitService
 from tests.fixtures.circuits import monza
 
