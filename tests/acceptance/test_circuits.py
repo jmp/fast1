@@ -22,7 +22,7 @@ def test_getting_single_circuit_details() -> None:
     pass
 
 
-@given("I'm a user", target_fixture="client")  # type: ignore
+@given("I'm an API client", target_fixture="client")  # type: ignore
 def client() -> TestClient:
     return TestClient(app)
 
