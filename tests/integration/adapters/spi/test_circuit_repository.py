@@ -1,8 +1,6 @@
 from pytest import mark
 
-from app.adapters.spi.persistence.repositories.circuit_repository import (
-    CircuitRepository,
-)
+from app.adapters.spi.circuit_repository import CircuitRepository
 from tests.fixtures.circuits import monza
 
 

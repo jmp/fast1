@@ -1,10 +1,9 @@
 from typing import Optional
 
+from app.adapters.spi.entities.circuit_entity import CircuitEntity
+from app.adapters.spi.session import db_session
 from app.domain.circuit import Circuit
 from app.ports.spi import GetCircuitPort
-
-from ..entities.circuit_entity import CircuitEntity
-from ..session import db_session
 
 
 class CircuitRepository(GetCircuitPort):

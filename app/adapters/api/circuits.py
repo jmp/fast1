@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from app.adapters.api.dependencies import Dependencies, get_dependencies
 from app.adapters.api.dtos.circuit_dto import CircuitDto
-from app.adapters.spi.persistence.session import db_session
+from app.adapters.spi.session import db_session
 
 router = APIRouter(prefix="/circuits")
 

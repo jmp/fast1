@@ -3,10 +3,8 @@ from typing import Callable, Iterator
 
 from sqlalchemy.orm import Session
 
-from app.adapters.spi.persistence.repositories.circuit_repository import (
-    CircuitRepository,
-)
-from app.adapters.spi.persistence.session import SessionLocal
+from app.adapters.spi.circuit_repository import CircuitRepository
+from app.adapters.spi.session import SessionLocal
 from app.ports.api import GetCircuitUseCase
 from app.services.circuit_service import CircuitService
 
