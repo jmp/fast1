@@ -6,6 +6,6 @@ common_responses: dict[int | str, dict[str, Any]] = {
     404: {
         "model": MessageDto,
         "description": "The item was not found.",
-        "content": {"application/json": {"example": {"detail": "Not Found"}}},
+        "content": {"application/json": {"example": MessageDto(detail="Not Found")}},
     },
 }
