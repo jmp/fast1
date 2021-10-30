@@ -8,6 +8,7 @@ from sqlalchemy.pool import StaticPool
 
 from app.adapters.spi.persistence.entities.circuit_entity import CircuitEntity
 from app.adapters.spi.persistence.entities.entity import Entity
+from app.adapters.spi.persistence.session import db_session
 
 _engine = create_engine(
     "sqlite:///:memory:",
@@ -35,6 +36,7 @@ def session() -> Iterator[Session]:
     )
     session.add(entity)
     session.commit()
+    db_session.set(session)
     yield session
     session.close()
     Entity.metadata.drop_all(bind=_engine)
