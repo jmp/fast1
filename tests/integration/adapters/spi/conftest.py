@@ -16,7 +16,7 @@ _engine = create_engine(
     poolclass=StaticPool,
 )
 
-_SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=_engine)
+_SessionLocal = sessionmaker(autoflush=False, bind=_engine)
 
 
 @fixture(scope="session")
