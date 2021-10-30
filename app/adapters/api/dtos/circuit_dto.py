@@ -19,6 +19,18 @@ class CircuitDto(BaseModel):
     class Config:
         frozen = True
         title = "Circuit"
+        schema_extra = {
+            "example": {
+                "ref": "spa",
+                "name": "Circuit de Spa-Francorchamps",
+                "location": "Spa",
+                "country": "Belgium",
+                "latitude": 50.437198638916016,
+                "longitude": 5.9713897705078125,
+                "altitude": 401.0,
+                "url": "http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps",
+            }
+        }
 
     @staticmethod
     def from_domain_model(circuit: Circuit) -> "CircuitDto":
