@@ -16,6 +16,10 @@ class CircuitDto(BaseModel):
     altitude: Optional[float]
     url: str
 
+    class Config:
+        frozen = True
+        title = "Circuit"
+
     @staticmethod
     def from_domain_model(circuit: Circuit) -> "CircuitDto":
         return CircuitDto(
