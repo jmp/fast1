@@ -36,7 +36,8 @@ def session() -> Iterator[Session]:
     )
     session.add(entity)
     session.commit()
-    db_session.set(session)
+    token = db_session.set(session)
     yield session
+    db_session.reset(token)
     session.close()
     Entity.metadata.drop_all(bind=_engine)
