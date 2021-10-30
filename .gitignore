@@ -1,5 +1,7 @@
+.coverage
 .idea
 .mypy_cache
 .pytest_cache
 .venv
 __pycache__
+coverage.xml
