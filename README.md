@@ -7,9 +7,9 @@ This is a an experimental read-only API for F1 data.
 
 ## Requirements
 
-* [Docker](docker)
-* [Python](python)
-* [Poetry](poetry)
+* [Docker][docker]
+* [Python][python]
+* [Poetry][poetry]
 
 ## Installing dependencies
 
