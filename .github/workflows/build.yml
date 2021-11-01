@@ -21,6 +21,11 @@ jobs:
             ~/.cache/pip
             ~/.cache/pypoetry
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+      - name: Update pip
+        run: |
+          pip install -U wheel
+          pip install -U setuptools
+          python -m pip install -U pip
       - uses: abatilo/actions-poetry@v2.1.4
       - run: poetry install
       - run: ./scripts/lint.sh
@@ -39,6 +44,11 @@ jobs:
             ~/.cache/pip
             ~/.cache/pypoetry
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+      - name: Update pip
+        run: |
+          pip install -U wheel
+          pip install -U setuptools
+          python -m pip install -U pip
       - uses: abatilo/actions-poetry@v2.1.4
       - run: poetry install
       - run: ./scripts/test.sh
